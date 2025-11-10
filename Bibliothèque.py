@@ -9,57 +9,69 @@ class Bibliothèque :
         self.Livre = []
         self.Emprunteur = []
 
+        # la methode qui permet d'ajouter un livre
+        def ajouter_livre(id_livre,titre,auteur):
+            self.livres.append(Livre(id_livre,titre,auteur))
+            print ("Livre" +self.Livre + " ajouté à la bibliothèque")
+            return Livre
 
-        def ajouter_livre(id,titre,Auteur):
-            self.livres.append(Livre(id,titre,Auteur)) # la methode qui permet d'ajouter un livre
+
+
 
 
         # la methode qui permet de rechercher un livre
-        def rechercher_livre(titre,Auteur):
+        def rechercher_livre(titre,auteur):
             for livre in self.livres:
                 if livre.titre == titre:
-                    if livre.Auteur == Auteur:
-
+                    if livre.auteur == auteur:
                      return livre
 
         # la methode qui permet d'emprunter un livre'
         def emprunter_livre(id_livre,id_emprunteur):
             for livre in self.livres:
                 if livre.id == id_livre:
-                    livre.disponible = False
-                    self.Emprunteur.append(id_emprunteur)
+                    if livre.disponible :
+                        livre.id_emprunteur (id_emprunteur.nom_emprunteur)
+                        id_emprunteur.livres_empruntees.append(livre)
+                        print(f"{id_emprunteur.nom_emprunteur} a emprunter {livre.titre}")
+                        return True
+                    else:
+                        print("Le livre" + livre.titre + "  est déjà emprunté. ")
+                        return False
+            print ("Livre avec id " + {id_livre} + " non trouvé.")
+            return False
 
         # la methode qui permet de retourne un livre
-        def retourner_livre(id_livre, id_emprunteur):
-            for id_livre in self.Livre:
-                if (Livre.id_livre == id_livre and Emprunteur.id_emprunteur == id_emprunteur):
-                    Livre.disponible = True
-                    return Livre
+        def retourner_livre(id_livre , id_emprunteur):
+
+            livre_Disponible = None
+            for livre in self.livres:
+                if livre.id == id_livre:
+                    livre_Disponible = livre
+                    break
 
 
-    Bibliothèque = Bibliothèque()
+            if livre_Disponible is None:
+                print (f"Erreur: Livre avec l'id {id_livre} introuvable.")
+                return False
 
-    B1 = Auteur("Josue", "Zambien", "Bernard")
-    B2 = Auteur("Joshe", "Congolais", "BYPYTHON")
-    B3 = Auteur("Joseph", "Americain", "Cycy")
-    B4 = Auteur("Joy", "Marocain", "Au paysical")
-    B5 = Auteur("Josephine", "Congolais", "Python")
-    B6 = Livre("FAB123","La vie est belle",B1)
-    B7 = Livre("FAB456","La vie au pays de blancs",B2)
-    B8 = Livre("FAB789","La vie au pays de geants",B3)
-    B9 = Livre("FAB1011","La vie au pays de Mzee",B4)
-    B10 = Livre("FAB1213","La vie au pays de blancs",B5)
-    B11 = Livre("FAB1415","La vie au pays de lumumba",B6)
-    B12 = Livre("FAB1617","La vie au pays de kasavubu",B7)
+            # Rechercher l'emprunteur
+            emprunteur_trouve = None
+            for emprunteur in self.emprunteurs:
+                if emprunteur.id == id_emprunteur:
+                    emprunteur_trouve = emprunteur
+                    break
 
-    B13 = Emprunteur("P001A","josue","La vie est belle")
-    B14 = Emprunteur("P002B","josh","La vie au pays de blancs")
-    B15 = Emprunteur("P003C","joseph","La vie au pays de geants")
-    B16 = Emprunteur("P004D","josephine","La vie au pays de lumumba")
-    B17 = Emprunteur("P005E","joshe","La vie au pays de kasavubu")
-    B18 = Emprunteur("P006F","joy","La vie au pays de Mzee")
-    Bibliothèque.ajouter_livre(203,"La vie est belle",B1)
-    Bibliothèque.ajouter_livre(204,"La vie au pays de blancs",B2)
-    Bibliothèque.ajouter_livre(205,"La vie au pays de geants ",B3)
-    Bibliothèque.ajouter_livre(206,"La vie au pays de blancs",B4)
 
+            if emprunteur_trouve is None:
+                print(f"Erreur: Emprunteur avec l'id {id_emprunteur} introuvable.")
+                return False
+
+            if livre_Disponible not in emprunteur_trouve.livres_empruntes:
+                print(f"Erreur :{emprunteur_trouve.nom_emprunteur} n'a pas emprunter le livre {livre_Disponible.titre}.")
+                return False
+
+            livre_Disponible.disponible = True
+            emprunteur_trouve.livres_empruntees.remove(livre_Disponible)
+            print(f"{emprunteur_trouve.nom_emprunteur} a retourné '{livre_Disponible.titre}'")
+            return True
