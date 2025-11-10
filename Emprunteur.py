@@ -1,5 +1,5 @@
 class Emprunteur:
-    def __init__(self,id,nom,livres_empruntees):
-        self.id = id
-        self.nom = nom
+    def __init__(self,id_emprunteur,nom_emprunteur,livres_empruntees):
+        self.id = id_emprunteur
+        self.nom = nom_emprunteur
         self.livres_empruntees = []
