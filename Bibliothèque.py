@@ -35,3 +35,19 @@ class Bibliothèque :
                 if (Livre.id_livre == id_livre and Emprunteur.id_emprunteur == id_emprunteur):
                     Livre.disponible = True
                     return Livre
+
+
+    Bibliothèque = Bibliothèque()
+
+    B1 = Auteur("Josue", "Zambien", "Bernard")
+    B2 = Auteur("Joshe", "Congolais", "BYPYTHON")
+    B3 = Auteur("Joseph", "Americain", "Cycy")
+    B4 = Auteur("Joy", "Marocain", "Au paysical")
+    B5 = Auteur("Josephine", "Congolais", "Python")
+    B6 = Livre(203,"La vie est rose",B1)
+    B7 = Livre(204,"La vie au pays de blancs",B2)
+    B8 = Livre(205,"La vie au pays de geants ",B3)
+    B9 = Livre(206,"La vie au pays de blancs",B4)
+    B10 = Livre(207,"La vie au pays de blancs",B5)
+    B11 =   Emprunteur(101,"Josue",)
+
