@@ -2,8 +2,8 @@ from Livre import Livre
 from Emprunteur import Emprunteur
 from Auteur import Auteur
 
-
 class Bibliothèque :
+
     def __init__(self):
         self.Auteur = []
         self.Livre = []
@@ -14,7 +14,6 @@ class Bibliothèque :
             self.livres.append(Livre(id,titre,Auteur)) # la methode qui permet d'ajouter un livre
 
 
-
         # la methode qui permet de rechercher un livre
         def rechercher_livre(titre,Auteur):
             for livre in self.livres:
@@ -22,7 +21,6 @@ class Bibliothèque :
                     if livre.Auteur == Auteur:
 
                      return livre
-
 
         # la methode qui permet d'emprunter un livre'
         def emprunter_livre(id_livre,id_emprunteur):
@@ -37,7 +35,3 @@ class Bibliothèque :
                 if (Livre.id_livre == id_livre and Emprunteur.id_emprunteur == id_emprunteur):
                     Livre.disponible = True
                     return Livre
-
-
-
-
