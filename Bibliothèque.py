@@ -78,7 +78,7 @@ class Bibliothèque :
 
 
         if __name__ == "__main__":
-            biblio = Bibliothèque
+            biblio = Bibliothèque()
 
             print("CREATION DES AUTEURS")
 
