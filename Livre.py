@@ -1,5 +1,4 @@
-from Auteur import Auteur
-from Emprunteur import Emprunteur
+
 class Livre:
     def __init__(self,id_livre,titre, auteur ):
         self.id = id_livre # identifiant univique du livre
