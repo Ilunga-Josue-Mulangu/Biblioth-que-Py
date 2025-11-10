@@ -10,3 +10,12 @@ class Auteur:
             return f"{self.nom} ({self.nationalite}) - Oeuvres: {titres}"
         else:
             return f"{self.nom} ({self.nationalite}) - Aucune oeuvre "
+
+
+
+
+
+
+
+
+
