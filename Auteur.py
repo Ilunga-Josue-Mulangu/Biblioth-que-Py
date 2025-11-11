@@ -9,7 +9,7 @@ class Auteur:
             titres = ", ".join([oeuvre.titre for oeuvre in self.oeuvres])
             return f"{self.nom} ({self.nationalite}) - Oeuvres: {titres}"
         else:
-            return f"{self.nom} ({self.nationalite}) - Aucune oeuvre "
+            return f"{self.nom} ({self.nationalite}) - Aucune oeuvre"
 
 
 
