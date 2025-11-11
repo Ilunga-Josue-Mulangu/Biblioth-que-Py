@@ -5,5 +5,5 @@ class Emprunteur:
         self.livres_empruntees = [] # liste des livres empruntes
 
     def __str__(self):
-        nb_livres = len(self.livres_empruntes)
-        return f"{self.nom} (ID: {self.id}) - {nb_livres} livre emprunté "
+        nb_livres = len(self.livres_empruntees)
+        return f"{self.nom_emprunteur} (ID: {self.id}) - {nb_livres} livre(s) emprunté(s)"
