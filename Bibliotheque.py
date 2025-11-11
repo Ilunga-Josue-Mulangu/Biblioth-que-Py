@@ -2,7 +2,7 @@ from Livre import Livre
 from Emprunteur import Emprunteur
 from Auteur import Auteur
 
-class Bibliothèque :
+class Bibliotheque :
 
     def __init__(self):
         self.Auteur = []
@@ -59,7 +59,6 @@ class Bibliothèque :
                 if emprunteur.id == id_emprunteur:
                     emprunteur_trouve = emprunteur
                     break
-
 
             if emprunteur_trouve is None:
                 print(f"Erreur: Emprunteur avec l'id {id_emprunteur} introuvable.")
