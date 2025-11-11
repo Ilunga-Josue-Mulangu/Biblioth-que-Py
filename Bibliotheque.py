@@ -12,6 +12,7 @@ class Bibliotheque :
         def ajouter_livre(self, id_livre, titre, auteur):
             nouveau_livre = Livre(id_livre, titre, auteur)
             self.livres.append(nouveau_livre)
+            auteur.oeuvres.append(nouveau_livre) # permet d'ajouter le livere aux oeuvres de l'auteur'
             print(f"Livre '{titre}' ajouté à la bibliothèque")
             return nouveau_livre
 
@@ -26,17 +27,18 @@ class Bibliotheque :
                 return None
 
 
-        # la methode qui permet d'emprunter un livre'
+        # la methode qui permet d'emprunter un livre
         def emprunter_livre(self,id_livre,id_emprunteur):
             for livre in self.livres:
                 if livre.id == id_livre:
                     if livre.disponible :
-                        livre.id_emprunteur (id_emprunteur.nom_emprunteur)
+                        livre.disponible = False
                         id_emprunteur.livres_empruntees.append(livre)
-                        print(f"{id_emprunteur.nom_emprunteur} a emprunter {livre.titre}")
+                        print(f"{id_emprunteur.nom_emprunteur} a emprunté {livre.titre}")
                         return True
                     else:
-                        print("Le livre" + livre.titre + "  est déjà emprunté. ")
+                        print(f"Le livre {livre.titre} est déjà emprunté.")
+
                         return False
             print(f"Livre avec id {id_livre} non trouvé.")
             return False
@@ -67,7 +69,7 @@ class Bibliotheque :
                 print(f"Erreur: Emprunteur avec l'id {id_emprunteur} introuvable.")
                 return False
 
-            if livre_Disponible not in emprunteur_trouve.livres_empruntes:
+            if livre_Disponible not in emprunteur_trouve.livres_empruntees:
                 print(f"Erreur :{emprunteur_trouve.nom_emprunteur} n'a pas emprunter le livre {livre_Disponible.titre}.")
                 return False
 
