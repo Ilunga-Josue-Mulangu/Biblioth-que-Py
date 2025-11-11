@@ -9,7 +9,7 @@ class Livre:
 
     def __str__(self):
         statut = " Disponible" if self.disponible else " Emprunté "
-        return ("Livre" + {self.titre}+ " de " + {self.auteur}+""+ {statut}+"")
+        return f"Livre '{self.titre}' de {self.auteur} - {statut}"
 
 
 
