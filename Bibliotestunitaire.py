@@ -16,13 +16,13 @@ class BibliothequeTestCase(unittest.TestCase):
 
         def test_ajouter_livre(self):
             """Test d'ajout d'un livre"""
-           # livre1 = self.ma_biblio.ajouter_livre(1, "Les Miserables", self.auteur)
-           # livre2 = self.ma_biblio.ajouter_livre(4,"La vie et demie",self.auteur)
-           # self.assertIsNotNone(livre1)
-           # self.assertIsNotNone(livre2)
-           # self.assertEqual(len(self.ma_biblio.livres), 2)
-           # self.assertTrue(livre1.disponible)
-           # self.assertTrue(livre2.disponible)
+            livre1 = self.ma_biblio.ajouter_livre(1, "Les Miserables", self.auteur)
+            livre2 = self.ma_biblio.ajouter_livre(4,"La vie et demie",self.auteur)
+            self.assertIsNotNone(livre1)
+            self.assertIsNotNone(livre2)
+            self.assertEqual(len(self.ma_biblio.livres), 2)
+            self.assertTrue(livre1.disponible)
+            self.assertTrue(livre2.disponible)
 
         def test_emprunter_livre(self):
             """Test d'emprunt d'un livre"""
