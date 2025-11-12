@@ -13,7 +13,7 @@ class Bibliotheque :
             nouveau_livre = Livre(id_livre, titre, auteur)
             self.livres.append(nouveau_livre)
             auteur.oeuvres.append(nouveau_livre) # permet d'ajouter le livere aux oeuvres de l'auteur'
-            print(f"Livre '{titre}' ajouté à la bibliothèque")
+            print(f"Livre '{titre}' a été ajouté à la bibliothèque ")
             return nouveau_livre
 
 
@@ -37,7 +37,7 @@ class Bibliotheque :
                         print(f"{id_emprunteur.nom_emprunteur} a emprunté {livre.titre}")
                         return True
                     else:
-                        print(f"Le livre {livre.titre} est déjà emprunté.")
+                        print(f"{id_emprunteur.nom_emprunteur} Le livre {livre.titre} est déjà emprunté.")
 
                         return False
             print(f"Livre avec id {id_livre} non trouvé.")
@@ -58,7 +58,7 @@ class Bibliotheque :
                 print (f"Erreur: Livre avec l'id {id_livre} introuvable.")
                 return False
 
-            # Rechercher l'emprunteur
+            #  La methode qui permet de Rechercher l'emprunteur
             emprunteur_trouve = None
             for emprunteur in self.emprunteurs:
                 if emprunteur.id == id_emprunteur:
