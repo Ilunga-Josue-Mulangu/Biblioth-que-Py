@@ -18,17 +18,23 @@ class Bibliotheque :
 
 
             # la methode qui permet de rechercher un livre
-        def rechercher_livre(self,titre, auteur):
+        def rechercher_livre(self, recherche):
+                livres_recherches = []
                 for livre in self.livres:
-                    if livre.titre == titre:
-                        if livre.auteur == auteur:
-                             return livre
+                    if recherche.lower() in livre.titre.lower() or recherche.lower() in livre.auteur.nom.lower():
+                        livres_recherches.append(livre)
 
-                return None
+                # Retourne la liste complète pour permettre plusieurs résultats
+
+                if livres_recherches:
+                    return livres_recherches
+                else:
+                    return None
 
 
         # la methode qui permet d'emprunter un livre
         def emprunter_livre(self,id_livre,id_emprunteur):
+
             for livre in self.livres:
                 if livre.id == id_livre:
                     if livre.disponible :
