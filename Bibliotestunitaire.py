@@ -45,9 +45,10 @@ class BibliothequeTestCase(unittest.TestCase):
         def test_rechercher_livre(self):
             """Test de recherche d'un livre"""
             livre = self.ma_biblio.ajouter_livre(4,"Notre-Dame de Paris",self.auteur)
-            livre_trouve = self.ma_biblio.rechercher_livre("Notre-Dame de Paris", self.auteur)
+            livre_trouve = self.ma_biblio.rechercher_livre("Notre-Dame de Paris")
             self.assertIsNotNone(livre_trouve)
-            self.assertEqual(livre_trouve, livre)
+            self.assertEqual(len(livre_trouve), 1)
+            self.assertEqual(livre_trouve[0], livre)
 
 
 
