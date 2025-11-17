@@ -48,7 +48,7 @@ for livre in ma_biblio.livres:
 print("\n------ Emprunts ------\n")
 
 ma_biblio.emprunter_livre(2, emprunteur2)
-ma_biblio.emprunter_livre(3, emprunteur3)
+
 ma_biblio.emprunter_livre(4, emprunteur4)
 ma_biblio.emprunter_livre(2 , emprunteur5)
 
