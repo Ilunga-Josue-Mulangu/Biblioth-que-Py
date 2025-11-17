@@ -50,7 +50,7 @@ print("\n------ Emprunts ------\n")
 ma_biblio.emprunter_livre(2, emprunteur2)
 ma_biblio.emprunter_livre(3, emprunteur3)
 ma_biblio.emprunter_livre(4, emprunteur4)
-ma_biblio.emprunter_livre(2, emprunteur5)
+ma_biblio.emprunter_livre(2 , emprunteur5)
 
 
 
@@ -61,9 +61,10 @@ for emprunteur in ma_biblio.emprunteurs:
 
 # Rechercher un livre
 print("\n------ Recherche ------\n")
-livre_trouve = ma_biblio.rechercher_livre("Les Misérables", auteur1)
+livre_trouve = ma_biblio.rechercher_livre("Les Misérables")
 if livre_trouve:
-    print(f"Trouvé: {livre_trouve}")
+    for livre in livre_trouve:
+        print(f"Trouvé: {livre}")
 else:
     print("Livre non trouvé")
 
